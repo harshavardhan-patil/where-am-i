@@ -1,0 +1,27 @@
+[packages]
+black = "*"
+flake8 = "*"
+ipython = "*"
+isort = "*"
+jupyterlab = "*"
+loguru = "*"
+matplotlib = "*"
+notebook = "*"
+numpy = "*"
+pandas = "*"
+pip = "*"
+python-dotenv = "*"
+scikit-learn = "*"
+tqdm = "*"
+typer = "*"
+"src" ={editable = true, path = "."}
+geopy = "*"
+pygeohash = "*"
+torch = "*"
+torchvision = "*"
+transformers = "*"
+
+[requires]
+python_version = "3.10"
+
+[dev-packages]
