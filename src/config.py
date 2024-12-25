@@ -21,12 +21,7 @@ MODELS_DIR = PROJ_ROOT / "models"
 REPORTS_DIR = PROJ_ROOT / "reports"
 FIGURES_DIR = REPORTS_DIR / "figures"
 
-# If tqdm is installed, configure loguru with tqdm.write
-# https://github.com/Delgan/loguru/issues/135
-try:
-    from tqdm import tqdm
+#
+#MODEL_NAME = "microsoft/swin-large-patch4-window7-224-in22k"
+MODEL_NAME = "google/vit-base-patch16-224-in21k"
 
-    logger.remove(0)
-    logger.add(lambda msg: tqdm.write(msg, end=""), colorize=True)
-except ModuleNotFoundError:
-    pass
