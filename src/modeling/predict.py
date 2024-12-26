@@ -16,10 +16,7 @@ model.load_state_dict(torch.load(f=hf_hub_download(repo_id=REPO_ID, filename=MOD
 gps_decoder = EmbeddingToGPSDecoder()
 gps_decoder.load_state_dict(torch.load(f=hf_hub_download(repo_id=REPO_ID, filename=REVERSE), weights_only=True, map_location='cpu'))
 
-def image_to_tensor(uploaded_file):
-    # Open the image
-    image = Image.open(uploaded_file)
-
+def image_to_tensor(image):
     transform = transforms.Compose([
         v2.Resize((224, 224)),
         v2.ToImage(),  
@@ -41,8 +38,12 @@ def image_to_tensor(uploaded_file):
 def predict_nn(uploaded_file):
     model.eval()
     gps_decoder.eval()
-    image = image_to_tensor(uploaded_file).unsqueeze(0) #adding a batch dimension for vit
+    try:
+        image = Image.open(uploaded_file)
+    except:
+        return False
 
+    image = image_to_tensor(image).unsqueeze(0) #adding a batch dimension for vit
     with torch.no_grad():
         embedding = model(image)
         output = gps_decoder(embedding)
