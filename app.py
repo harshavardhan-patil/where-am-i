@@ -29,6 +29,10 @@ geolocator = Nominatim(user_agent="GetLoc")
 
 def process_image(uploaded_file):
     gps = predict_nn(uploaded_file)
+    if not gps:
+        st.write("Invalid Format!")
+        return
+        
     addr = geolocator.reverse(gps).raw['address']
     str = ""
     for key in addr.keys():
@@ -55,7 +59,6 @@ if uploaded_file is not None:
 
 enable = st.checkbox("Enable camera")
 picture = st.camera_input("Take a photo", disabled=not enable)
-
 if picture is not None:
-    process_image(uploaded_file)
+    process_image(picture)
 
