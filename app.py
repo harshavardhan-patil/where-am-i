@@ -56,6 +56,6 @@ if uploaded_file is not None:
 enable = st.checkbox("Enable camera")
 picture = st.camera_input("Take a photo", disabled=not enable)
 
-if picture:
-    st.image(picture)
+if picture is not None:
+    process_image(uploaded_file)
 
