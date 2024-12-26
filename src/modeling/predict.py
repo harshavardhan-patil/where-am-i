@@ -12,9 +12,9 @@ from huggingface_hub import hf_hub_download
 from src.config import REPO_ID, MODEL, REVERSE
 
 model = GeoLocator()
-model.load_state_dict(torch.load(f=hf_hub_download(repo_id=REPO_ID, filename=MODEL), weights_only=True)['model_state_dict'])
+model.load_state_dict(torch.load(f=hf_hub_download(repo_id=REPO_ID, filename=MODEL), weights_only=True, map_location='cpu')['model_state_dict'])
 gps_decoder = EmbeddingToGPSDecoder()
-gps_decoder.load_state_dict(torch.load(f=hf_hub_download(repo_id=REPO_ID, filename=REVERSE), weights_only=True))
+gps_decoder.load_state_dict(torch.load(f=hf_hub_download(repo_id=REPO_ID, filename=REVERSE), weights_only=True, map_location='cpu'))
 
 def image_to_tensor(uploaded_file):
     # Open the image
