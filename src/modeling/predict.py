@@ -1,26 +1,20 @@
 from pathlib import Path
 
 from loguru import logger
-from tqdm import tqdm
 from PIL import Image
 import torch
-import torch.nn as nn
 from torchvision.transforms import v2
 from torchvision import transforms
 import torch
 from src.base.GeoLocator import GeoLocator
 from src.base.EmbeddingToGPSDecoder import EmbeddingToGPSDecoder
-
-from src.config import MODELS_DIR, PROCESSED_DATA_DIR
-
-
-nn_path = MODELS_DIR / 'geonn/geonn_v62.pt'
-decoder_path = MODELS_DIR / "reverse/reversenn.pt"
+from huggingface_hub import hf_hub_download
+from src.config import REPO_ID, MODEL, REVERSE
 
 model = GeoLocator()
-model.load_state_dict(torch.load(nn_path, weights_only=True)['model_state_dict'])
+model.load_state_dict(torch.load(f=hf_hub_download(repo_id=REPO_ID, filename=MODEL), weights_only=True)['model_state_dict'])
 gps_decoder = EmbeddingToGPSDecoder()
-gps_decoder.load_state_dict(torch.load(decoder_path, weights_only=True))
+gps_decoder.load_state_dict(torch.load(f=hf_hub_download(repo_id=REPO_ID, filename=REVERSE), weights_only=True))
 
 def image_to_tensor(uploaded_file):
     # Open the image
@@ -41,7 +35,6 @@ def image_to_tensor(uploaded_file):
     ])
 
     tensor = transform(image)
-    print(tensor)
     return tensor   
 
 

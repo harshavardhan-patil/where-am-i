@@ -21,7 +21,10 @@ MODELS_DIR = PROJ_ROOT / "models"
 REPORTS_DIR = PROJ_ROOT / "reports"
 FIGURES_DIR = REPORTS_DIR / "figures"
 
-#
 #MODEL_NAME = "microsoft/swin-large-patch4-window7-224-in22k"
 MODEL_NAME = "google/vit-base-patch16-224-in21k"
+
+REPO_ID = "harshavardhan-patil16/where-am-i"
+MODEL = "geonn_v62.pt"
+REVERSE = "reversenn.pt"
 

@@ -27,7 +27,6 @@ set_jpg_as_page_bg('static/bg.jpg')
 # initialize Nominatim API 
 geolocator = Nominatim(user_agent="GetLoc")
 
-
 def process_image(uploaded_file):
     gps = predict_nn(uploaded_file)
     addr = geolocator.reverse(gps).raw['address']
