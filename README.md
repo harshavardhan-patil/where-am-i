@@ -208,6 +208,7 @@ The system performs fairly well on the test set.
 
 |**Mean Geodesic Distance Error** | **461.46 miles (742.65 km)**|
 |---|---|
+|Decoder Localization Error | 12.55 miles (20.2 km)|
 
 It was observed that the predictions were usually within the same state or neighboring states. Some states like California had a much higher prediction accuracy, possibly due to its higher representation in the training set. 
 
