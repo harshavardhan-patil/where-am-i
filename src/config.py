@@ -2,6 +2,8 @@ from pathlib import Path
 
 from dotenv import load_dotenv
 from loguru import logger
+import os
+
 
 # Load environment variables from .env file if it exists
 load_dotenv()
@@ -24,7 +26,7 @@ FIGURES_DIR = REPORTS_DIR / "figures"
 #MODEL_NAME = "microsoft/swin-large-patch4-window7-224-in22k"
 MODEL_NAME = "google/vit-base-patch16-224-in21k"
 
-REPO_ID = "harshavardhan-patil16/where-am-i"
-MODEL = "geonn_v62.pt"
-REVERSE = "reversenn.pt"
+REPO_ID = os.getenv("REPO_ID") 
+MODEL = os.getenv("MODEL")
+REVERSE = os.getenv("REVERSE")
 
