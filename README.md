@@ -42,17 +42,17 @@ And while I don't think I will be 'humanly' getting close to Rainbolt's speed an
 
 ## Challenges
 The world is a big place, duh. The way pros like Rainbolt perform so well in GeoGuessr is that they have memorized the minute details of the world by playing the game for a long time. Everything from the type of street light pole to the color of sand to the types of cars to the way languages look, these pros have it all stored in their mind. And there are a lot of these of course.<br>
-1. <strong>Ambiguous Visual Features</strong>
-     - Many locations look similar (e.g., forests, beaches, highways), making it hard to infer unique geolocation features from an image.
+1. <strong>Ambiguous Visual Features</strong><br>
+     - Many locations look similar (e.g., forests, beaches, highways), making it hard to infer unique geolocation features from an image.<br>
      - Some images might lack identifiable landmarks or context altogether.
-2. <strong>Scale Differences</strong>
+2. <strong>Scale Differences</strong><br>
      - The model must work across vastly different scales, from street-level views (e.g., urban photos) to regional or global landscapes (e.g., satellite images).
-3. <strong>Lighting and Weather Conditions</strong>
+3. <strong>Lighting and Weather Conditions</strong><br>
      - Changes in lighting (e.g., day vs. night) and weather (e.g., rain, fog, snow) can obscure visual details.
-4. <strong>Lighting and Weather Conditions</strong>
+4. <strong>Lighting and Weather Conditions</strong><br>
      - Changes in lighting (e.g., day vs. night) and weather (e.g., rain, fog, snow) can obscure visual details.
-5. <strong>Dynamic Environments</strong>
-      - Urban areas change over time due to construction, demolition, or vegetation growth, making older datasets less relevant.
+5. <strong>Dynamic Environments</strong><br>
+      - Urban areas change over time due to construction, demolition, or vegetation growth, making older datasets less relevant.<br>
       - Moving elements (e.g., cars, people, animals) in the image can add noise to geolocation.
 
 ## Scope
@@ -170,21 +170,21 @@ To benefit from the fine-grained predictions of a retrieval-based system while m
 ### Training
 The two components are trained separately as follows:
 
-**1. Image Encoder**
-   - An image is passed through the Image Encoder
-   - Corresponding pair of GPS coordinates (latitude and longitude) is fed into the GeoCLIP Location Encoder
-   - The Image Encoder outputs a 512-dimensional encoding for the image.
-   - The GeoCLIP Location Encoder generates a target encoding based on the input GPS coordinates.
+**1. Image Encoder**<br>
+   - An image is passed through the Image Encoder<br>
+   - Corresponding pair of GPS coordinates (latitude and longitude) is fed into the GeoCLIP Location Encoder<br>
+   - The Image Encoder outputs a 512-dimensional encoding for the image.<br>
+   - The GeoCLIP Location Encoder generates a target encoding based on the input GPS coordinates.<br>
    - The Cosine Similarity Loss is computed between the image encoding and the target encoding. This measures how close the two encodings are in the latent space and is used for backpropagation.
   
 The model learns to encode images into a 512-dimensional latent space, aligning it with a target encoding derived from GPS coordinates. The loss function ensures the two encodings (image and target) are as similar as possible.
 
 <img src='reports/figures/train1.png' alt='training1'/>
 
-**2. Encoding to GPS Decoder Training Loop**
-   - GPS coordinates are passed through the GeoCLIP Location Encoder, generating a 512-dimensional input encoding.
-   - The input encoding is fed into the Encoding to the GPS Decoder.
-   - The decoder outputs the predicted latitude and longitude.
+**2. Encoding to GPS Decoder Training Loop**<br>
+   - GPS coordinates are passed through the GeoCLIP Location Encoder, generating a 512-dimensional input encoding.<br>
+   - The input encoding is fed into the Encoding to the GPS Decoder.<br>
+   - The decoder outputs the predicted latitude and longitude.<br>
    - The Geodesic Distance Loss is computed between the predicted GPS coordinates and the ground truth. This loss reflects the great circle distance between two points on Earth, providing a geographically meaningful error metric, and is used for backpropagation.
 
 The model learns to decode a latent space encoding back to its corresponding GPS coordinates. This enables geolocation prediction from encodings.
