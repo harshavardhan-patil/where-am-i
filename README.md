@@ -36,9 +36,8 @@ As a long-time GeoGuessr fan, the ability to pinpoint a location based on an ima
 <img src='reports\figures\geoguessrui.jpeg' alt='GeoGeussrUI'/>
 
 Now I am a very average player at GeoGuessr, but watching professionals like "Rainbolt" guess the location based on a pixelated photo of a blade of grass is a fascinating spectacle. I mean come on, guessing a country from an image in 0.1 seconds is truly superhuman stuff.
-<iframe width="560" height="315" src="https://www.youtube.com/embed/ff6E4mrUkBY?si=mXObQ8I8jk63LFzC" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-<br>
-And while I don't think I will be 'humanly' getting close to Rainbolt's speed and accuracy, maybe a machine can.
+Check out this [Rainbolt's Video](https://www.youtube.com/embed/ff6E4mrUkBY?si=mXObQ8I8jk63LFzC)
+, while I don't think I will be 'humanly' getting close to Rainbolt's speed and accuracy, maybe a machine can.
 
 ## Challenges
 The world is a big place, duh. The way pros like Rainbolt perform so well in GeoGuessr is that they have memorized the minute details of the world by playing the game for a long time. Everything from the type of street light pole to the color of sand to the types of cars to the way languages look, these pros have it all stored in their mind. And there are a lot of these of course.<br>
