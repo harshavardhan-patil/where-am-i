@@ -48,9 +48,7 @@ The world is a big place, duh. The way pros like Rainbolt perform so well in Geo
      - The model must work across vastly different scales, from street-level views (e.g., urban photos) to regional or global landscapes (e.g., satellite images).
 3. <strong>Lighting and Weather Conditions</strong><br>
      - Changes in lighting (e.g., day vs. night) and weather (e.g., rain, fog, snow) can obscure visual details.
-4. <strong>Lighting and Weather Conditions</strong><br>
-     - Changes in lighting (e.g., day vs. night) and weather (e.g., rain, fog, snow) can obscure visual details.
-5. <strong>Dynamic Environments</strong><br>
+4. <strong>Dynamic Environments</strong><br>
       - Urban areas change over time due to construction, demolition, or vegetation growth, making older datasets less relevant.<br>
       - Moving elements (e.g., cars, people, animals) in the image can add noise to geolocation.
 
